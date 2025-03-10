@@ -1,0 +1,146 @@
+<div class="wrap">
+    <div class = "character_img">
+        <!--인장-->
+        <div class = "img_border">
+            <img name="attr_character_avatar" />
+        </div>
+    </div>
+    <div class = "character_info">
+        <!--캐릭터 정보-->
+        <p>I ain't gonna die waitin' on salvation. As long as we still got guns, we gonna fight.</p>
+        <div class = info_container>
+            <div class = "line">
+                <span>NAME</span>
+                <input type = "text" class = "character_name" name ="attr_character_name">
+            </div>
+            <div class = "line">
+                <span>AGE</span>
+                <input type = "text" class = "character_age" name ="attr_character_age">
+            </div>
+            <div class = "line">
+                <span>HP</span>
+                <input type = "text" class = "character_hp" name ="attr_character_hp">
+            </div>
+        </div>
+    </div>
+    <div class = "logo">
+        <!--로고-->
+    </div>
+    <div class = "stats">
+        <!--스탯-->
+        <table
+            border="1"
+            width="50%"
+            height="200"
+            cellspacing="5">
+            <caption>STATS</caption>
+            <thead>
+                <tr align="center" bgcolor="white">
+                    <th>STR</th>
+                    <th>ACC</th>
+                    <th>OBS</th>
+                    <th>LUK</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr align="center" bgcolor="white">
+                    <td>
+                        <input type = "text" class = "character_str" name ="attr_character_str">
+                    </td>
+                    <td>
+                        <input type = "text" class = "character_acc" name ="attr_character_acc">
+                    </td>
+                    <td>
+                        <input type = "text" class = "character_obs" name ="attr_character_obs">
+                    </td>
+                    <td>
+                        <input type = "text" class = "character_luk" name ="attr_character_luk">
+                    </td>
+                </tr>
+                <tr align="center" bgcolor="white">
+                    <td>
+                        <button name ="act_strdice" class = "dice1" type="roll" value="&{template:ins}{{name=@{character_str}}}{{roll=[[@{character_str}]]}}{{rolltxt=근력 판정}}{{type=[[4]]}}"></button>
+                    </td>
+                    <td>
+                        <button name ="act_accdice" class = "dice1" type="roll" value="&{template:ins}{{name=@{character_acc}}}{{roll=[[@{character_acc}]]}}{{rolltxt=명중률 판정}}{{type=[[4]]}}"></button>
+                    </td>
+                    <td>
+                        <button name ="act_obsdice" class = "dice1" type="roll" value="&{template:ins}{{name=@{character_obs}}}{{roll=[[@{character_obs}]]}}{{rolltxt=관찰력 판정}}{{type=[[4]]}}"></button>
+                    </td>
+                    <td>
+                        <button name ="act_lukdice" class = "dice1" type="roll" value="&{template:ins}{{name=@{character_luk}}}{{roll=[[@{character_luk}]]}}{{rolltxt=행운 판정}}{{type=[[4]]}}"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class = "battle">
+        <!--전투판정-->
+        <div class = battle_container>
+            <div class = "line">
+                <span>WEAPON</span>
+                <select id = "weapon" class = "character_weapon" name ="attr_weapon_name">
+                        <option value="pan" selected>프라이팬</option>
+                        <option value="ax">도끼</option>
+                        <option value="katana">카타나</option>
+                </select>
+                <button name ="act_weadice" class = "dice1"></button>
+            </div>
+            <div class = "line">
+                <span>GUN</span>
+                <select id = "gun" class = "character_gun" name ="attr_gun_name">
+                        <option value="gun1" selected>권총</option>
+                        <option value="gun2">산탄총</option>
+                        <option value="gun3">저격소총</option>
+                        <option value="gun4">기관단총</option>
+                        <option value="gun5">돌격소총</option>
+                </select>
+                <button name ="act_weadice" class = "dice1"></button>
+            </div>
+            <div class = "line">
+                <span>OBSERVATION</span>
+                <select id = "big_zombie" class = "big_zombie" name ="attr_bigzombie_name">
+                        <option value="z1" selected>차저</option>
+                        <option value="z2">헌터</option>
+                        <option value="z3">스피터</option>
+                        <option value="z4">자키</option>
+                        <option value="z5">부머</option>
+                        <option value="z6">스모커</option>
+                </select>
+                <button name ="act_weadice" class = "dice1"></button>
+            </div>
+            <div class = "line">
+                <span>HEAL PACK</span>
+                <input type="checkbox" id="heal" name="attr_healpack_name" value="heal">
+                <button name ="act_weadice" class = "dice1"></button>
+            </div>
+        </div>
+    </div>
+    <div class = "item">
+        <!--인벤-->
+        <div id = "inven">ITEM</div>
+        <textarea name="attr_inventory" cols="40" rows="8" ></textarea>
+    </div>
+    <div class = "memo">
+        <div id = "mem">MEMO</div>
+        <textarea name="attr_memo" cols="40" rows="8" ></textarea>
+    </div>
+</div>
+
+
+
+
+<rolltemplate class="sheet-rolltemplate-ins">
+    <div class="sheet-template-area">
+        <div class = "sheet-header">
+            <span>{{rolltxt}}</span>
+        </div>
+    </div>
+    <div class = "sheet-body">
+        {{#type}}
+        {{#rollTotal() type 4}}
+        <span>{{roll}}</span>
+        {{/rollTotal() type 4}}
+        {{/type}}
+    </div>
+</rolltemplate>
