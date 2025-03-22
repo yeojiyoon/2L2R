@@ -19,15 +19,35 @@ div{
     display:none !important;
 }
 .wrap .character_img{
+    
     width: 340px;/*가로길이 2칸*/
     height: 340px;/*세로길이 2칸*/
-    background-color: #f1f3f5;
     display: inline-block;
+    position: relative;
+    z-index: 1;
+}
+.wrap .character_img .polaroid{
+    
+    width: 340px;/*가로길이 2칸*/
+    height: 340px;/*세로길이 2칸*/
+    display: inline-block;
+    position: absolute;
+    z-index: 999;
+}
+.wrap .character_img .img_border{
+    margin:45px;/*테두리부터 바깥까지 간격 상하좌우 45px*/
+    width:250px; /*인장 넣을 공간 가로크기*/
+    height: 250px;/*인장 넣을 공간 세로크기*/
+    overflow:hidden;/*이미지가 공간을 넘어가면 넘어간부분 숨김*/
+    box-sizing:border-box; /*테두리 부분 가로길이에 포함*/
+    background:#2D2D2D;
+    z-index: 100;
+    position: absolute;
 }
 .wrap .character_info{
     width: 510px;/*가로길이 2칸*/
     height: 340px;/*세로길이 2칸*/
-    background-color: #f1f3f5;
+    background-color: #2D2D2D;
     float : right;
     text-align: right;
 }
@@ -40,7 +60,7 @@ div{
     height: 250px;/*이름 넣을 공간 세로크기*/
     overflow:hidden;/*공간을 넘어가면 넘어간부분 숨김*/
     box-sizing:border-box; /*테두리 부분 가로길이에 포함*/
-    background:#f1f3f5;
+    background:#2D2D2D;
 }
 .wrap .character_info .line{
     border-bottom: 2px dashed #eee; /*밑에 실선*/
@@ -71,7 +91,7 @@ div{
 .wrap .logo{
     width: 850px;
     height: 170px;
-    background-color: #f1f3f5;
+    background-color: #2D2D2D;
     background-image: url("https://i.imgur.com/UNnQBV5.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -80,12 +100,12 @@ div{
 .wrap .stats{
     width: 850px;
     height: 340px;
-    background-color: #f1f3f5;
+    background-color: #2D2D2D;
 }
 .wrap .battle{
     width: 850px;
     height: 340px;
-    background-color: #f1f3f5;
+    background-color: #2D2D2D;
 }
 .wrap .battle .line{
     border-bottom: 2px dashed #eee; /*밑에 실선*/
@@ -116,22 +136,14 @@ div{
 .wrap .item{
     width: 425px;
     height: 340px;
-    background-color: #f1f3f5;
+    background-color: #2D2D2D;
     display: inline-block;
 }
 .wrap .memo{
     width: 425px;
     height: 340px;
-    background-color: #f1f3f5;
+    background-color: #2D2D2D;
     float : right;
-}
-.wrap .character_img .img_border{
-    margin:45px;/*테두리부터 바깥까지 간격 상하좌우 45px*/
-    width:250px; /*인장 넣을 공간 가로크기*/
-    height: 250px;/*인장 넣을 공간 세로크기*/
-    overflow:hidden;/*이미지가 공간을 넘어가면 넘어간부분 숨김*/
-    box-sizing:border-box; /*테두리 부분 가로길이에 포함*/
-    background:#aec9d290;
 }
 .wrap .character_img .img_border img{
     display: block;
